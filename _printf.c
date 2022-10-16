@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 						i = i + 2;
 						break;
 					case '%':
-						_putchar((char) va_arg(ap, int));
+						_putchar(format[i + 1]);
 						j++;
 						i = i + 2;
 						break;
