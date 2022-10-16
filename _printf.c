@@ -30,11 +30,6 @@ int _printf(const char *format, ...)
 						j += _print_string(va_arg(ap, char *));
 						i = i + 2;
 						break;
-					case '%':
-						_putchar('%');
-						j++;
-						i = i + 2;
-						break;
 					default:
 						_putchar(format[i + 1]);
 						j++;
