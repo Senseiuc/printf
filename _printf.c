@@ -17,36 +17,22 @@ int _printf(const char *format, ...)
 	{
 		while (format[i])
 		{
-			if (format[i] == '%' && format[i + 1] != '\0')
+			if (format[i] == '%')
 			{
-				switch (format[i + 1])
-				{
-					case 'c':
-						_putchar((char) va_arg(ap, int));
-						i = i + 2;
-						j++;
-						break;
-					case 's':
-						j += _print_string(va_arg(ap, char *));
-						i = i + 2;
-						break;
-					case '%':
-						_putchar(format[i + 1]);
-						j++;
-						i = i + 2;
-						break;
-					default:
-						_putchar(format[i]);
-						j++;
-						i++;
-						break;
-				}
+				while (format[i + 1] == ' ')
+					i++;
+				if (format[i + 1] == '\0')
+					return (-1);
+				j += print_fstring(&i, format, ap);
+				i += 2;
 			}
 			_putchar(format[i]);
 			i++;
 			j++;
 		}
 	}
+	else
+		return (-1);
 	va_end(ap);
 	return (j);
 }
