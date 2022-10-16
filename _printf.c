@@ -10,15 +10,14 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i = 0 , j = 0;
+	int i = 0, j = 0;
 
 	va_start(ap, format);
-
 	if (format)
 	{
 		while (format[i])
 		{
-			if(format[i] == '%' && format[i + 1] != '\0')
+			if (format[i] == '%' && format[i + 1] != '\0')
 			{
 				switch (format[i + 1])
 				{
