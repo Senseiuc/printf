@@ -1,31 +1,53 @@
 #include "main.h"
+
 /**
   *_printf - formats a string and print the string
-  *@format: the sgtring format
+  *@format: the string format
   *
   *Return: void
   */
+
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	unsigned int i;
-	char *str;
+	int i = 0 , j = 0;
 
-	va_start(ap, n);         /* Initialize the argument list. */
-	for (i = 0; i < n; i++)
+	va_start(ap, format);
+
+	if (format)
 	{
-		str = va_arg(ap, char *);
-		if (!str)
-			str = "(nil)";
-		if (!separator)
-			printf("%s", str);
-		else if (separator && i == 0)
-			printf("%s", str);
-		else
-			printf("%s%s", separator, str);
+		while (format[i])
+		{
+			if(format[i] == '%' && format[i + 1] != '\0')
+			{
+				switch (format[i + 1])
+				{
+					case 'c':
+						_putchar((char) va_arg(ap, int));
+						i = i + 2;
+						j++;
+						break;
+					case 's':
+						j += _print_string(va_arg(ap, char *));
+						i = i + 2;
+						break;
+					case '%':
+						_putchar('%');
+						j++;
+						i = i + 2;
+						break;
+					default:
+						_putchar(format[i + 1]);
+						j++;
+						i = i + 2;
+						break;
+				}
+			}
+			_putchar(format[i]);
+			i++;
+			j++;
+		}
 	}
-
-	printf("\n");
-
-	va_end(ap);                  /* Clean up. */
+	va_end(ap);
+	return (j);
 }
