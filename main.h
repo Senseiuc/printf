@@ -11,6 +11,7 @@ int print_fstring(int *pos, const char *format, va_list ap);
 int print_string(va_list ap);
 int print_char(va_list ap);
 int print_percent(va_list ap);
+int print_int(va_list ap);
 
 /**
  * struct conv_spec - Struct op

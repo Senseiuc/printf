@@ -14,6 +14,8 @@ int print_fstring(int *pos, const char *format, va_list ap)
 		{'c', print_char},
 		{'s', print_string},
 		{'%', print_percent},
+		{'d', print_int},
+		{'i', print_int},
 		{'\0', NULL}
 	};
 	int i = 0, l = 0;
