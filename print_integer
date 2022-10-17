@@ -10,7 +10,7 @@ int print_int(va_list ap)
 int n, var = 1, length = 0;
 unsigned int pos;
 
-n = va_arg(i, int);
+n = va_arg(ap, int);
 
 if (n < 0)
 {
