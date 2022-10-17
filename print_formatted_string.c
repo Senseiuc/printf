@@ -16,7 +16,7 @@ int print_fstring(int *pos, const char *format, va_list ap)
 		{'%', print_percent},
 		{'\0', NULL}
 	};
-	int i = 0;
+	int i = 0, l = 0;
 
 	while (con_spec[i].spec != '\0')
 	{
@@ -26,7 +26,13 @@ int print_fstring(int *pos, const char *format, va_list ap)
 		}
 		i++;
 	}
-	_putchar(format[*pos]);
+	_putchar('%');
+	if (format[*pos] == ' ')
+	{
+		_putchar(' ');
+		l++;
+	}
 	_putchar(format[*pos + 1]);
-	return (2);
+	l += 2;
+	return (l);
 }

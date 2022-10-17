@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	va_start(ap, format);
 	if (format)
 	{
-		while (format[i])
+		while (format[i] != '\0')
 		{
 			if (format[i] == '%')
 			{
@@ -25,6 +25,7 @@ int _printf(const char *format, ...)
 					return (-1);
 				j += print_fstring(&i, format, ap);
 				i += 2;
+				continue;
 			}
 			_putchar(format[i]);
 			i++;
