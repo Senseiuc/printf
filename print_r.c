@@ -24,32 +24,33 @@ return (lenr);
 }
 
 /**
- * print_rot13 - prints a string encrypted with rot13
- * @ap: the variadic argument
- * Return: amount of characters printed
+ * rot13 - Converts string to rot13
+ * @list: string to convert
+ * Return: converted string
  */
+int rot13(va_list list)
+{
+int i;
+int x;
+char *str;
+char s[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char u[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-int print_rot13(va_list ap)
+str = va_arg(list, char *);
+if (str == NULL)
+return (-1);
+for (i = 0; str[i] != '\0'; i++)
 {
-int len = 0;
-int i, j;
-char *s = va_arg(ap, char *);
-
-char alpha[] =
-"\n! aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
-char replace[] =
-"\n!_ nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
-
-for (i = 0; s[i] != '\0'; i++)
+for (x = 0; x <= 52; x++)
 {
-for (j = 0; j <= 55; j++)
+if (str[i] == s[x])
 {
-if (s[i] == alpha[j])
-{
-len = len + _putchar(replace[j]);
+_putchar(u[x]);
 break;
 }
 }
+if (x == 53)
+_putchar(str[i]);
 }
-return (len);
+return (i);
 }
