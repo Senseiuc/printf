@@ -17,6 +17,8 @@ int print_octal_number(va_list ap);
 int print_hexadecimal(va_list ap);
 int print_hexadecimal_cap(va_list ap);
 int print_hexadecimal_all(va_list ap, char c);
+int print_reverse(va_list ap);
+int print_rot13(va_list ap);
 
 /**
  * struct conv_spec - Struct op
