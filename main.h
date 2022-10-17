@@ -12,6 +12,11 @@ int print_string(va_list ap);
 int print_char(va_list ap);
 int print_percent(va_list ap);
 int print_int(va_list ap);
+int print_unsigned_int(va_list ap);
+int print_octal_number(va_list ap);
+int print_hexadecimal(va_list ap);
+int print_hexadecimal_cap(va_list ap);
+int print_hexadecimal_all(va_list ap, char c);
 
 /**
  * struct conv_spec - Struct op
