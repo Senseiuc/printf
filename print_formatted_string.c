@@ -20,6 +20,7 @@ int print_fstring(int *pos, const char *format, va_list ap)
 		{'o', print_octal_number},
 		{'x', print_hexadecimal},
 		{'X', print_hexadecimal_cap},
+		{'b', print_binary},
 		{'\0', NULL}
 	};
 	int i = 0, l = 0;
