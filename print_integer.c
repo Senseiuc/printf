@@ -22,7 +22,6 @@ else
 {
 pos = n;
 }
-
 while (pos / var > 9)
 {
 var = var * 10;

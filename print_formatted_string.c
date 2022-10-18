@@ -21,6 +21,8 @@ int print_fstring(int *pos, const char *format, va_list ap)
 		{'x', print_hexadecimal},
 		{'X', print_hexadecimal_cap},
 		{'b', print_binary},
+		{'r', print_reverse},
+		{'R', rot13},
 		{'\0', NULL}
 	};
 	int i = 0, l = 0;
