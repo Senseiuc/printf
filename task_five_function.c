@@ -15,7 +15,7 @@ int print_string_S(va_list ap)
 	while (n[l] != 0)
 	{
 		ac = n[l];
-		if ((ac < 0 && ac < 32) || ac >= 127)
+		if ((ac > 0 && ac < 32) || ac >= 127)
 		{
 			lenght += _putchar('\\');
 			lenght += _putchar('x');
