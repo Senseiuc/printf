@@ -11,18 +11,15 @@
 int print_fstring(int *pos, const char *format, va_list ap)
 {
 	conv_spec_t con_spec[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'%', print_percent},
-		{'d', print_int},
-		{'i', print_int},
-		{'u', print_unsigned_int},
+		{'c', print_char}, {'s', print_string}, {'%', print_percent},
+		{'d', print_int}, {'i', print_int}, {'u', print_unsigned_int},
 		{'o', print_octal_number},
 		{'x', print_hexadecimal},
 		{'X', print_hexadecimal_cap},
 		{'b', print_binary},
 		{'r', print_reverse},
 		{'R', rot13},
+		{'S', print_string_S},
 		{'\0', NULL}
 	};
 	int i = 0, l = 0;
